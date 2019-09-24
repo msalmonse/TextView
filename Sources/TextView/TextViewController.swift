@@ -46,7 +46,7 @@ struct TextViewController: UIViewRepresentable {
     }
 
     public func updateUIView(_ controller: UITextView, context: Context) {
-        controller.text = state.text
+        if controller.text != state.text { controller.text = state.text }
     }
 
     public class Coordinator: NSObject, UITextViewDelegate {
@@ -65,7 +65,7 @@ struct TextViewController: UIViewRepresentable {
         }
 
         public func textViewDidChange(_ controller: UITextView) {
-            parent.state.text = controller.text
+            if parent.state.text != controller.text { parent.state.text = controller.text }
         }
     }
 }
