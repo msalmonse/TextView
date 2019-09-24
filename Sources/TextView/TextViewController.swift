@@ -13,15 +13,9 @@ struct TextViewController: UIViewRepresentable {
     @ObservedObject
     var state: TextViewState
 
-    let doDismiss: (() -> Void)?
 
-    public init(_ state: TextViewState, _ doDismiss: (() -> Void)? = nil) {
+    public init(_ state: TextViewState) {
         self.state = state
-        self.doDismiss = doDismiss
-    }
-
-    func dismiss() {
-        if doDismiss != nil { doDismiss!() }
     }
 
     public func makeCoordinator() -> Coordinator {
@@ -56,14 +50,6 @@ struct TextViewController: UIViewRepresentable {
 
         public init(_ controller: TextViewController) {
             parent = controller
-        }
-
-        public func textView(
-            _ controller: UITextView,
-            shouldChangeTextIn range: NSRange,
-            replacementText text: String
-        ) -> Bool {
-            return true
         }
 
         public func textViewDidChange(_ controller: UITextView) {

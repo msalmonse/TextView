@@ -15,17 +15,17 @@ public class TextViewState: ObservableObject, Identifiable {
     @Published
     public var text: String
 
-    var backgroundColor = UIColor.systemBackground
-    var font: UIFont
-    var isEditable = true
-    var isScrollEnabled = true
-    var isUserInteractionEnabled = true
-    var textColor = UIColor.label
+    public var backgroundColor = UIColor.systemBackground
+    public var font: UIFont
+    public var isEditable = true
+    public var isScrollEnabled = true
+    public var isUserInteractionEnabled = true
+    public var textColor = UIColor.label
 
     // From UITextInputTraits
-    var autocapitalizationType = UITextAutocapitalizationType.sentences
-    var autocorrectionType = UITextAutocorrectionType.default
-    var spellCheckingType = UITextSpellCheckingType.default
+    public var autocapitalizationType = UITextAutocapitalizationType.sentences
+    public var autocorrectionType = UITextAutocorrectionType.default
+    public var spellCheckingType = UITextSpellCheckingType.default
 
     // Undo manager from UITextView
     @Published

@@ -12,18 +12,12 @@ import SwiftUI
 public struct TextView: View {
     @ObservedObject
     var state: TextViewState
-    @Environment(\.presentationMode)
-    var mode: Binding<PresentationMode>
 
     public init(_ state: TextViewState) {
         self.state = state
     }
 
-    func doDismiss() {
-        mode.wrappedValue.dismiss()
-    }
-
     public var body: some View {
-        TextViewController(state, { self.doDismiss() })
+        TextViewController(state)
     }
 }
