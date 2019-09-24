@@ -41,7 +41,9 @@ struct TextViewController: UIViewRepresentable {
         controller.isUserInteractionEnabled = state.isUserInteractionEnabled
         controller.spellCheckingType = state.spellCheckingType
         controller.textColor = state.textColor
-        
+
+        state.undomanager = controller.undoManager
+
         return controller
     }
 
