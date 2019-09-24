@@ -15,11 +15,17 @@ public class TextViewState: ObservableObject, Identifiable {
     @Published
     public var text: String
 
-    let font: UIFont
-    let isScrollEnabled = true
-    let isEditable = true
-    let isUserInteractionEnabled = true
-    let backgroundColor = UIColor.systemBackground
+    var backgroundColor = UIColor.systemBackground
+    var font: UIFont
+    var isEditable = true
+    var isScrollEnabled = true
+    var isUserInteractionEnabled = true
+    var textColor = UIColor.label
+
+    // From UITextInputTraits
+    var autocapitalizationType = UITextAutocapitalizationType.sentences
+    var autocorrectionType = UITextAutocorrectionType.default
+    var spellCheckingType = UITextSpellCheckingType.default
 
     public init(_ text: String, font: UIFont) {
         self.text = text

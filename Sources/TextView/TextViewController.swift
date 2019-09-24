@@ -32,12 +32,16 @@ struct TextViewController: UIViewRepresentable {
         let controller = UITextView()
         controller.delegate = context.coordinator
 
-        controller.font = state.font
-        controller.isScrollEnabled = state.isScrollEnabled
-        controller.isEditable = state.isEditable
-        controller.isUserInteractionEnabled = state.isUserInteractionEnabled
+        controller.autocapitalizationType = state.autocapitalizationType
+        controller.autocorrectionType = state.autocorrectionType
         controller.backgroundColor = state.backgroundColor
-
+        controller.font = state.font
+        controller.isEditable = state.isEditable
+        controller.isScrollEnabled = state.isScrollEnabled
+        controller.isUserInteractionEnabled = state.isUserInteractionEnabled
+        controller.spellCheckingType = state.spellCheckingType
+        controller.textColor = state.textColor
+        
         return controller
     }
 
