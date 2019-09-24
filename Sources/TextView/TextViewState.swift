@@ -28,7 +28,7 @@ public class TextViewState: ObservableObject, Identifiable {
     var spellCheckingType = UITextSpellCheckingType.default
 
     // Undo manager from UITextView
-    var undomanager: UndoManager?
+    public var undomanager: UndoManager?
 
     public init(_ text: String, font: UIFont) {
         self.text = text
