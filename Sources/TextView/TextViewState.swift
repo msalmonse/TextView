@@ -16,7 +16,7 @@ public class TextViewState: ObservableObject, Identifiable {
     public var text: String
 
     public var backgroundColor = UIColor.systemBackground
-    public var font: UIFont
+    public var font: UIFont?
     public var isEditable = true
     public var isScrollEnabled = true
     public var isUserInteractionEnabled = true
@@ -31,7 +31,7 @@ public class TextViewState: ObservableObject, Identifiable {
     @Published
     public var undomanager: UndoManager?
 
-    public init(_ text: String, font: UIFont) {
+    public init(_ text: String, font: UIFont? = nil) {
         self.text = text
         self.font = font
     }
