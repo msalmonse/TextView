@@ -24,9 +24,9 @@ public class TextViewState: ObservableObject, Identifiable {
 
     #if os(iOS)
     // From UITextInputTraits
-    public var autocapitalizationType = NSTextAutocapitalizationType.sentences
-    public var autocorrectionType = NSTextAutocorrectionType.default
-    public var spellCheckingType = NSTextSpellCheckingType.default
+    public var autocapitalizationType = UITextAutocapitalizationType.sentences
+    public var autocorrectionType = UITextAutocorrectionType.default
+    public var spellCheckingType = UITextSpellCheckingType.default
     #endif
 
     // Undo manager from UITextView
