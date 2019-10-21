@@ -27,6 +27,14 @@ struct TextViewController: NSViewRepresentable {
         let controller = NSTextView(frame: NSRect.infinite)
         controller.delegate = context.coordinator
         context.coordinator.setView(controller)
+
+        controller.backgroundColor = state.backgroundColor
+        controller.font = state.font
+        controller.isEditable = state.isEditable
+        controller.textColor = state.textColor
+
+        state.undomanager = controller.undoManager
+
         return controller
     }
 
@@ -34,15 +42,22 @@ struct TextViewController: NSViewRepresentable {
         if controller.string != state.text { controller.string = state.text }
     }
 
+    public static func dismantleNSView(_ controller: NSTextView, coordinator: Coordinator) {
+        let text = controller.string
+        let state = coordinator.parent.state
+        coordinator.setView(nil)
+        if text != state.text { state.text = text }
+    }
+
     public class Coordinator: NSObject, NSTextViewDelegate {
         var parent: TextViewController
-        var nsView: NSTextView?
+        weak var nsView: NSTextView?
 
         public init(_ controller: TextViewController) {
             parent = controller
         }
 
-        public func setView(_ nsView: NSTextView) {
+        public func setView(_ nsView: NSTextView?) {
             self.nsView = nsView
         }
 
