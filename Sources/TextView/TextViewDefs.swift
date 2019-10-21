@@ -14,7 +14,9 @@ import UIKit
 public typealias TVColor = UIColor
 public typealias TVFont = UIFont
 
+@available(iOS 13.0, *)
 let labelColor = UIColor.label
+@available(iOS 13.0, *)
 let systemBackground = UIColor.systemBackground
 
 #elseif os(macOS)
