@@ -1,11 +1,13 @@
 //
-//  TextViewController.swift
+//  TextViewControllerIos.swift
 //  
 //
 //  Created by Michael Salmon on 2019-09-23.
 //
 
 import SwiftUI
+
+#if os(iOS)
 import UIKit
 
 @available(iOS 13.0, *)
@@ -57,3 +59,4 @@ struct TextViewController: UIViewRepresentable {
         }
     }
 }
+#endif
