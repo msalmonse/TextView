@@ -29,7 +29,7 @@ struct TextViewController: NSViewRepresentable {
         context.coordinator.setView(controller)
 
         controller.backgroundColor = state.backgroundColor
-        controller.font = state.font
+        if state.font != nil { controller.font = state.font }
         controller.isEditable = state.isEditable
         controller.textColor = state.textColor
 
